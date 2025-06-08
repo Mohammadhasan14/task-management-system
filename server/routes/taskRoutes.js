@@ -9,7 +9,6 @@ import {
   updateTask,
   deleteTask,
 } from '../controllers/taskController.js';
-import e from 'express';
 
 router.get('/tasks', getAllTasks); 
 router.post('/tasks', createTask); 

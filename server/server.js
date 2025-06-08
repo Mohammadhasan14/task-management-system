@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import taskRoutes from './routes/taskRoutes.js';
-import db from './db/connection.js'; // Assuming db.server.js initializes the database connection
+import db from './db/connection.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
