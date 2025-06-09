@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function TasksList({ data }) {
     return (
-        <div>
+        <div className='tasks-list-container'>
             <h2>Tasks List</h2>
             <p>Here you will see the list of tasks.</p>
             {data.length ? data.map((task, index) => {

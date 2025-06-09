@@ -3,6 +3,7 @@ import CreateTask from "./components/CreateTask"
 import Modal from "./components/Modal"
 import axios from "axios";
 import TasksList from "./components/TasksList";
+import { url } from "./url";
 
 function App() {
   const [isCreateTaskOpen, setIsCreateTaskOpen] = useState(false);
@@ -18,7 +19,7 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/tasks');
+      const response = await axios.get(`${url}/api/tasks`);
       if (!response || !response?.data) {
         throw new Error("something went wrong while fethching tasks", response);
       }
@@ -38,7 +39,7 @@ function App() {
       const taskDetails = formData.get('taskDetails');
       console.log("Task Title:", taskTitle);
       console.log("Task Details", taskDetails)
-      const response = await axios.post('http://localhost:3000/api/tasks', {
+      const response = await axios.post(`${url}/api/tasks`, {
         title: taskTitle,
         details: taskDetails
       })
@@ -66,10 +67,10 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Welcome to the task management system.</h1>
+    <div className="container">
+      <h1 className="title">Welcome to the task management system.</h1>
       <div>
-        <button onClick={handleTaskModalOpen}> Create tasks here</button>
+        <button className="create-task-button" onClick={handleTaskModalOpen}> Create tasks here</button>
       </div>
       <Modal
         isOpen={isCreateTaskOpen}
